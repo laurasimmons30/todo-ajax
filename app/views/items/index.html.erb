@@ -1,0 +1,17 @@
+<% if !@items.empty? %>
+<table>
+  <tr>
+    <th>To Do Items</th>
+  </tr>
+
+  <% @items.each do |item| %>
+  <tr>
+    <td><%= item.title %></td>
+    <td><%= link_to 'Delete', item_path(item), method: :delete %></td>
+    <% end %>
+  </tr>
+</table>
+ 
+<% end %>
+
+<%= link_to 'Add an Item', new_item_path %>

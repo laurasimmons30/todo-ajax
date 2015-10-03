@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  before_action :all_items, only: [:index, :create]
+  respond_to :html, :js
+
   def index
     @items = Item.all
   end
@@ -9,9 +12,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-      if @item.save
-        flash[:notice] = "Item added to List"
-        redirect_to items_path
+    @item.save
+  
       else
         render :new
       end
@@ -25,6 +27,10 @@ class ItemsController < ApplicationController
   end
 
   protected
+
+  def all_items
+      @items = Item.all
+    end
 
   def item_params
     params.require(:item).permit(:title, :description)

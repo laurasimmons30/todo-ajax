@@ -6,6 +6,7 @@ Rails.application.routes.draw do
    root 'items#index'
 
    resources :items, except: [:edit, :update]
+   
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

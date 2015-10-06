@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>To Do Items</th>
+  </tr>
+
+  <% items.each do |item| %>
+    <tr>
+      <td><%= item.title %></td>
+      <td><%= link_to item.title, new_item_path, remote: true %></td>
+      <td><%= link_to 'Delete', item_path(item), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>

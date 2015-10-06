@@ -15,4 +15,10 @@
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation(); 
+
+  $("#form-toggle").on("click", function() {
+    $('#IDOFDIVFORM').toggle();
+  });
+
+});

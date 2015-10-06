@@ -4,19 +4,17 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-  end
-
-  def new
     @item = Item.new
   end
 
   def create
     @item = Item.new(item_params)
     @item.save
-  
-      else
-        render :new
-      end
+
+    @items = Item.all
+    respond_to do |format|
+      format.js { render "new.js.erb" }
+    end
   end
 
   def destroy
